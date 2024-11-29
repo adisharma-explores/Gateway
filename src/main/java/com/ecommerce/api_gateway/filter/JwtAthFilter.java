@@ -61,6 +61,7 @@ public class JwtAthFilter implements GlobalFilter {
             mutatedRequest.getHeaders().forEach((key, value) -> {
                 System.out.println(key + ": " + value);
             });
+
             return chain.filter(exchange.mutate().request(mutatedRequest).build());
         } catch (Exception e) {
             return unauthorized(exchange);
